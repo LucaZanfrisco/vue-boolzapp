@@ -16,22 +16,28 @@ body{
 .container{
     width: 75rem;
     height: 40.625rem;
-    background-color: red; 
     display: flex;
 }
 li{
     list-style: none;
 }
+img{
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 50%;
+}
 /* ------- */
 
 /* Colonna di sinistra contatti */
-.contact{
+.contact-container{
     width: 30%;
     height: 100%;
     background-color: white;
     display: flex;
     flex-direction: column;
 }
+/* ------- */
+/* Header */
 .profile{
     width: 100%;
     height: 20%;
@@ -39,23 +45,61 @@ li{
 }
 .avatar{
     display: flex;
-    background-color: pink;
     width: 100%;
     height: 50%;
     justify-content: space-between;
     align-items: center;
+    padding: .625rem;
+    background-color: whitesmoke;
 }
 .avatar-icon{
     display: flex;
+    align-items: center;
+}
+.avatar-icon li{
+    margin: 0 .625rem;
+    font-size: 1.25rem;
+    color: lightgrey;
+    cursor: pointer;
+}
+#avatar-personale,.name{
+    vertical-align: middle;
+}
+#avatar-personale{
+    margin-right: 10px;
+}
+.name{
+    font-weight: bold;
 }
 .notification{
     width: 100%;
     height: 50%;
     display: flex;
-    background-color: rgb(80, 179, 246);
+    background-color: rgb(120, 237, 255);
     display: flex;
     align-items: center;
+    padding: .625rem;
 }
+.bell{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+    border-radius: 50%;
+    color: rgb(128, 222, 251);
+    margin-right: .625rem;
+    cursor: pointer;
+}
+.new-mes{
+    font-size: small;
+}
+.notification a{
+    color: grey;
+    font-size: small;
+}
+/* Main */
 .contact-list{
     width: 100%;
     height: calc(100% - 20%);
@@ -63,16 +107,51 @@ li{
 .search{
     width: 100%;
     height: 10%;
-    background-color: brown;
     display: flex;
     align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: whitesmoke;
+}
+.fa-magnifying-glass{
+    color: grey;
+    position: absolute;
+    left: 10%;
+}
+[type="text"]{
+    width: 95%;
+    height: 60%;
+    text-align: center;
+    border: 1px solid lightgray;
+    border-radius: .3125rem;
 }
 .contact-box{
     height: calc(100% - 10%);
     flex-grow: 1;
     width: 100%;
     overflow-y: auto;
-    background-color: cadetblue;
+    display: flex;
+    flex-direction: column;
+}
+.contact-name{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: .0625rem solid rgb(226, 226, 226);
+    padding: 10px;
+}
+.contact-avatar{
+    display: flex;
+}
+.contact-avatar > img{
+    margin-right: .625rem
+}
+.last-ms{
+    font-size: small;
+    color: gray;
+}
+.time{
+    font-size: smaller;
+    color: grey;
 }
 
 
@@ -85,7 +164,7 @@ li{
     display: flex;
     flex-direction: column;
 }
-
+/* Header */
 .profile-chat{
     width: 100%;
     height: 10%;
@@ -98,6 +177,7 @@ li{
 .chat-icon{
     display: flex;
 }
+/* Main */
 .chat-box{
     width: 100%;
     flex-grow: 1;
@@ -105,6 +185,7 @@ li{
     padding: 1.5625rem;
     overflow-y: auto;
 }
+/* Footer */
 .input-chat{
     width: 100%;
     height: 15%;
@@ -113,3 +194,5 @@ li{
     justify-content: space-between;
     align-items: center;
 }
+/* ------- */
+
