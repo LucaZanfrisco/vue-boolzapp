@@ -56,11 +56,11 @@
               <input type="text" placeholder="Cerca o inizia una nuova chat" />
             </div>
             <div class="contact-box">
-              <div class="contact-name">
+              <div class="contact-name" v-for="contact in contacts">
                 <div class="contact-avatar">
-                  <img src="img/avatar_1.jpg" alt=""/>
+                  <img :src="contact.avatar" alt="contact.name" />
                   <div>
-                    <div>Michele</div>
+                    <div>{{ contact.name }}</div>
                     <div class="last-ms">Ultimo messaggio inviato</div>
                   </div>
                 </div>
@@ -68,19 +68,6 @@
                   <div class="time">12:00</div>
                 </div>
               </div>
-              <div class="contact-name">
-                <div class="contact-avatar">
-                  <img src="img/avatar_2.jpg" alt=""/>
-                  <div>
-                    <div>Fabio</div>
-                    <div class="last-ms">Ultimo messaggio inviato</div>
-                  </div>
-                </div>
-                <div>
-                  <div class="time">12:00</div>
-                </div>
-              </div>
-              
             </div>
           </main>
         </div>
@@ -89,11 +76,11 @@
           <!-- contatto della chat  -->
           <header class="profile-chat">
             <div class="chat-avatar">
-                <img src="img/avatar_1.jpg" alt="">
-                <div>
-                    <div>Michele</div>
-                    <div class="last-ms">Ultimo accesso alle 12:00</div>  
-                </div>
+              <img src="img/avatar_1.jpg" alt="" />
+              <div>
+                <div>Michele</div>
+                <div class="last-ms">Ultimo accesso alle 12:00</div>
+              </div>
             </div>
             <ul class="chat-icon">
               <li><i class="fa-solid fa-magnifying-glass"></i></li>
@@ -102,12 +89,56 @@
             </ul>
           </header>
           <!-- Contenitore dei messaggi -->
-          <main class="chat-box"></main>
+          <main class="chat-box">
+            <div class="msg recived">
+                ciao
+            </div>
+            <div class="msg sent">
+                come va?
+            </div>
+            <div class="msg recived">
+                bene
+            </div>
+            <div class="msg recived">
+                bene
+            </div>
+            <div class="msg recived">
+                bene
+            </div>
+            <div class="msg recived">
+                bene
+            </div>
+            <div class="msg recived">
+                bene
+            </div>
+            <div class="msg recived">
+                bene
+            </div>
+            <div class="msg recived">
+                bene
+            </div>
+            <div class="msg recived">
+                bene
+            </div>
+            <div class="msg recived">
+                bene
+            </div>
+            <div class="msg recived">
+                bene
+            </div>
+            <div class="msg recived">
+                bene
+            </div>
+            <div class="msg recived">
+                bene
+            </div>
+            
+          </main>
           <!-- Contenitore dell'inserimento del testo per la chat -->
           <footer class="input-chat">
             <div><i class="fa-regular fa-face-smile"></i></div>
             <div class="chat-ms">
-                <input type="text" placeholder="Scrivi un messaggio">
+              <input type="text" placeholder="Scrivi un messaggio" />
             </div>
             <div><i class="fa-solid fa-microphone"></i></div>
           </footer>

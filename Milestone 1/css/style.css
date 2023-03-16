@@ -196,6 +196,22 @@ img{
     background-image: url(../img/mine.jpg);
     padding: 1.5625rem;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+.msg{
+    width: 40%;
+    padding: .625rem 1.25rem;
+    font-size: 1.25rem;
+    border-radius: .3125rem;
+    margin: .3125rem;
+}
+.recived{
+    background-color: white;
+}
+.sent{
+    background-color: rgb(111, 224, 111);
+    align-self: flex-end;
 }
 /* Footer */
 .input-chat{
