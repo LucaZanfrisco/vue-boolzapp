@@ -1,0 +1,115 @@
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Common  */
+body{
+    background: linear-gradient(to bottom,rgb(5, 120, 116) 30%, whitesmoke 30% 70%);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    width: 75rem;
+    height: 40.625rem;
+    background-color: red; 
+    display: flex;
+}
+li{
+    list-style: none;
+}
+/* ------- */
+
+/* Colonna di sinistra contatti */
+.contact{
+    width: 30%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+.profile{
+    width: 100%;
+    height: 20%;
+    flex-shrink: 0;
+}
+.avatar{
+    display: flex;
+    background-color: pink;
+    width: 100%;
+    height: 50%;
+    justify-content: space-between;
+    align-items: center;
+}
+.avatar-icon{
+    display: flex;
+}
+.notification{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    background-color: rgb(80, 179, 246);
+    display: flex;
+    align-items: center;
+}
+.contact-list{
+    width: 100%;
+    height: calc(100% - 20%);
+}
+.search{
+    width: 100%;
+    height: 10%;
+    background-color: brown;
+    display: flex;
+    align-items: center;
+}
+.contact-box{
+    height: calc(100% - 10%);
+    flex-grow: 1;
+    width: 100%;
+    overflow-y: auto;
+    background-color: cadetblue;
+}
+
+
+
+/* Colonna di destra chat */
+.chat{
+    width: 70%;
+    height: 100%;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-chat{
+    width: 100%;
+    height: 10%;
+    background-color: gold;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.chat-icon{
+    display: flex;
+}
+.chat-box{
+    width: 100%;
+    flex-grow: 1;
+    background-image: url(../img/mine.jpg);
+    padding: 1.5625rem;
+    overflow-y: auto;
+}
+.input-chat{
+    width: 100%;
+    height: 15%;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
