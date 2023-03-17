@@ -58,11 +58,11 @@
           <main class="contact-list">
             <div class="search">
               <i class="fa-solid fa-magnifying-glass search-icon"></i>
-              <input type="text" placeholder="Cerca o inizia una nuova chat" />
+              <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="contactSearch" @keyup="findContact"/>
             </div>
             <!-- Contenitori dei contatti  -->
             <div class="contact-box">
-              <div class="contact-name" v-for="(contact,index) in contacts" @click="userSelect(index)" :class="{select: isSelected(index)}">
+              <div class="contact-name" v-for="(contact,index) in findContact()" @click="userSelect(index)" :class="{select: isSelected(index)}">
                 <div class="contact-avatar">
                   <img :src="contact.avatar" alt="contact.name" />
                   <div>

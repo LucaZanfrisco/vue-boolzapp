@@ -9,6 +9,7 @@ createApp({
       answerMessage: 'Ok',
       answerTimer: 2,
       userSelected: 0,
+      contactSearch: '',
       selected: false,
       contacts: [
         {
@@ -207,6 +208,13 @@ createApp({
             status
           });
         }, this.answerTimer * 1000);
+    },
+    findContact(){
+      if(this.contactSearch !== ''){
+        return this.contacts.filter(element => element.name.toLowerCase().includes(this.contactSearch.toLowerCase()));
+      }else{
+        return this.contacts;
+      }
     }
   }
 }).mount('#app');
