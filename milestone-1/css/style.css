@@ -12,9 +12,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Lato', sans-serif;
 }
 .container{
-    width: 100rem;
+    width: 87.5rem;
     height: 50rem;
     display: flex;
 }
@@ -194,7 +195,7 @@ img{
 .chat-box{
     width: 100%;
     flex-grow: 1;
-    background-image: url(../img/mine.jpg);
+    background-image: url(../../img/mine.jpg);
     padding: 4.375rem;
     overflow-y: auto;
     display: flex;
@@ -202,10 +203,12 @@ img{
 }
 .msg{
     width: 40%;
-    padding: .625rem 1.25rem;
+    /* padding: .625rem 1.25rem; */
     font-size: 1.25rem;
     border-radius: .3125rem;
     margin: .3125rem;
+    display: flex;
+    justify-content: space-between;
 }
 .recived{
     background-color: white;
@@ -213,6 +216,15 @@ img{
 .sent{
     background-color: rgb(187, 255, 187);
     align-self: flex-end;
+}
+.txt-ms{
+    padding: .625rem 1.25rem;
+}
+.time-ms{
+    align-self: flex-end;
+    font-size: xx-small;
+    color: grey;
+    padding: .125rem;
 }
 /* Footer */
 .input-chat{
