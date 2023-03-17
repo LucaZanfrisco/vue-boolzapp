@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BoolzApp</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- /Font Awesome -->
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <!-- /Google Font -->
+    <!-- My Css -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Istanza di VUE -->
+    <div id="app" v-cloak>
+      <!-- Container generale centrato -->
+      <div class="container">
+        <!-- Colonna di sinistra -->
+        <div class="contact-container">
+          <!-- Header con avatar e notifiche -->
+          <header class="profile">
+            <div class="avatar">
+              <div>
+                <img
+                  src="../img/avatar_8.jpg"
+                  alt="avatar-personale"
+                  id="avatar-personale"
+                />
+                <span class="name">Luca</span>
+              </div>
+              <ul class="avatar-icon">
+                <li><i class="fa-regular fa-circle"></i></li>
+                <li><i class="fa-solid fa-message"></i></li>
+                <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+              </ul>
+            </div>
+            <div class="notification">
+              <div class="bell"><i class="fa-solid fa-bell-slash"></i></div>
+              <div>
+                <div class="new-mes">Ricevi notifiche di nuovi messaggi</div>
+                <div><a href="#">Attiva notifiche desktop</a></div>
+              </div>
+            </div>
+          </header>
+          <!-- main con input cerca e elenco contatti -->
+          <main class="contact-list">
+            <div class="search">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="contactSearch" @keyup="findContact"/>
+            </div>
+            <!-- Contenitori dei contatti  -->
+            <div class="contact-box">
+              <div class="contact-name" v-for="(contact,index) in findContact()" @click="userSelect(index)" :class="{select: isSelected(index)}">
+                <div class="contact-avatar">
+                  <img :src="contact.avatar" alt="contact.name" />
+                  <div>
+                    <div>{{ contact.name }}</div>
+                    <div class="last-ms">Ultimo messaggio inviato</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="time">12:00</div>
+                </div>
+              </div>
+            </div>
+            <!-- /Contenitori dei contatti -->
+          </main>
+        </div>
+        <!-- Colonnan di destra  -->
+        <div class="chat">
+          <!-- contatto della chat  -->
+          <header class="profile-chat">
+            <div class="chat-avatar">
+              <img :src="contacts[userSelected].avatar" alt="contacts[userSelected].name" />
+              <div>
+                <div>{{ contacts[userSelected].name}}</div>
+                <div class="last-ms">Ultimo accesso alle 12:00</div>
+              </div>
+            </div>
+            <ul class="chat-icon">
+              <li><i class="fa-solid fa-magnifying-glass"></i></li>
+              <li><i class="fa-solid fa-paperclip"></i></li>
+              <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+            </ul>
+          </header>
+          <!-- Contenitore dei messaggi -->
+          <main class="chat-box">
+            <div class="msg" :class="{sent: message.status}" v-for="message in contacts[userSelected].messages">
+                <div class="txt-ms"> {{ message.message }} </div>
+                <div class="time-ms">12:00</div>
+            </div> 
+          </main>
+
+          <!-- Contenitore dell'inserimento del testo per la chat -->
+          <footer class="input-chat">
+            <div><i class="fa-regular fa-face-smile"></i></div>
+            <div class="chat-ms">
+              <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="newMsg()"/>
+            </div>
+            <div><i class="fa-solid fa-microphone"></i></div>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- VueJS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- My Js -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
