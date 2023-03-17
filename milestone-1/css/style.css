@@ -14,8 +14,8 @@ body{
     align-items: center;
 }
 .container{
-    width: 75rem;
-    height: 40.625rem;
+    width: 100rem;
+    height: 50rem;
     display: flex;
 }
 li{
@@ -35,6 +35,7 @@ img{
     background-color: white;
     display: flex;
     flex-direction: column;
+    border-right: 1px solid lightgray;
 }
 /* ------- */
 /* Header */
@@ -116,7 +117,7 @@ img{
 .search-icon{
     color: grey;
     position: absolute;
-    left: 10%;
+    left: 7%;
 }
 .search > [type="text"]{
     width: 95%;
@@ -186,7 +187,7 @@ img{
 }
 .chat-icon > li{
     margin: 0 .625rem;
-    color: grey;
+    color: lightgrey;
     cursor: pointer;
 }
 /* Main */
@@ -226,12 +227,12 @@ img{
 }
 .chat-ms{
     width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
 }
 .chat-ms > [type="text"]{
     width: 90%;
-    height: 1.875rem;
     border-radius: .3125rem;
     border: .0625rem solid lightgray;
     padding: 0 10px;
