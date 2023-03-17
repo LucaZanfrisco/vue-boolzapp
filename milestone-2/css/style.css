@@ -134,6 +134,7 @@ img{
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 .contact-name{
     display: flex;
@@ -156,7 +157,9 @@ img{
     font-size: smaller;
     color: grey;
 }
-
+.select{
+    background-color: rgb(235, 235, 235);
+}
 
 
 /* Colonna di destra chat */

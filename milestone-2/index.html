@@ -60,8 +60,9 @@
               <i class="fa-solid fa-magnifying-glass search-icon"></i>
               <input type="text" placeholder="Cerca o inizia una nuova chat" />
             </div>
+            <!-- Contenitori dei contatti  -->
             <div class="contact-box">
-              <div class="contact-name" v-for="contact in contacts">
+              <div class="contact-name" v-for="(contact,index) in contacts" @click="userSelect(index)" :class="{select: isSelected(index)}">
                 <div class="contact-avatar">
                   <img :src="contact.avatar" alt="contact.name" />
                   <div>
@@ -74,6 +75,7 @@
                 </div>
               </div>
             </div>
+            <!-- /Contenitori dei contatti -->
           </main>
         </div>
         <!-- Colonnan di destra  -->
@@ -81,9 +83,9 @@
           <!-- contatto della chat  -->
           <header class="profile-chat">
             <div class="chat-avatar">
-              <img src="../img/avatar_1.jpg" alt="" />
+              <img :src="contacts[userSelected].avatar" alt="contacts[userSelected].name" />
               <div>
-                <div>{{ contacts[0].name}}</div>
+                <div>{{ contacts[userSelected].name}}</div>
                 <div class="last-ms">Ultimo accesso alle 12:00</div>
               </div>
             </div>
@@ -95,7 +97,7 @@
           </header>
           <!-- Contenitore dei messaggi -->
           <main class="chat-box">
-            <div class="msg" :class="{sent: message.status}" v-for="message in contacts[0].messages">
+            <div class="msg" :class="{sent: message.status}" v-for="message in contacts[userSelected].messages">
                 <div class="txt-ms"> {{ message.message}} </div>
                 <div class="time-ms">12:00</div>
             </div> 

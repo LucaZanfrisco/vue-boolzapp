@@ -6,6 +6,7 @@ createApp({
   data() {
     return {
       userSelected: 0,
+      selected: false,
       contacts: [
         {
           name: "Michele",
@@ -171,4 +172,15 @@ createApp({
       ],
     };
   },
+  methods:{
+    userSelect(index){
+      this.userSelected = index;
+    },
+    isSelected(index){
+      if(this.userSelected === index){
+        return true;
+      }
+      return false;
+    }
+  }
 }).mount('#app');
