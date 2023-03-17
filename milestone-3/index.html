@@ -24,7 +24,7 @@
   </head>
   <body>
     <!-- Istanza di VUE -->
-    <div id="app">
+    <div id="app" v-cloak>
       <!-- Container generale centrato -->
       <div class="container">
         <!-- Colonna di sinistra -->
@@ -98,7 +98,7 @@
           <!-- Contenitore dei messaggi -->
           <main class="chat-box">
             <div class="msg" :class="{sent: message.status}" v-for="message in contacts[userSelected].messages">
-                <div class="txt-ms"> {{ message.message}} </div>
+                <div class="txt-ms"> {{ message.message }} </div>
                 <div class="time-ms">12:00</div>
             </div> 
           </main>

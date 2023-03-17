@@ -7,6 +7,7 @@ createApp({
     return {
       newMessage: '',
       answerMessage: 'Ok',
+      answerTimer: 2,
       userSelected: 0,
       selected: false,
       contacts: [
@@ -194,8 +195,18 @@ createApp({
           message,
           status,
         })
+        }
         this.newMessage = '';
-      }
+        setTimeout(() => {
+          let { date, message,status} = this.contacts[this.userSelected].messages;
+          message = this.answerMessage;
+          status = false;
+          this.contacts[this.userSelected].messages.push({
+            date,
+            message,
+            status
+          });
+        }, this.answerTimer * 1000);
     }
   }
 }).mount('#app');

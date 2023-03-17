@@ -27,6 +27,9 @@ img{
     height: 3.125rem;
     border-radius: 50%;
 }
+[v-cloak]{
+    display: none;
+}
 /* ------- */
 
 /* Colonna di sinistra contatti */
