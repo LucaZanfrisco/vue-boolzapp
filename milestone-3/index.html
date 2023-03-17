@@ -107,7 +107,7 @@
           <footer class="input-chat">
             <div><i class="fa-regular fa-face-smile"></i></div>
             <div class="chat-ms">
-              <input type="text" placeholder="Scrivi un messaggio" />
+              <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="newMsg()"/>
             </div>
             <div><i class="fa-solid fa-microphone"></i></div>
           </footer>

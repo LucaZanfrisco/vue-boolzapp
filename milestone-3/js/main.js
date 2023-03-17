@@ -5,6 +5,8 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
+      newMessage: '',
+      answerMessage: 'Ok',
       userSelected: 0,
       selected: false,
       contacts: [
@@ -181,6 +183,19 @@ createApp({
         return true;
       }
       return false;
+    },
+    newMsg(){
+      if(this.newMessage.trim() !== ''){
+        let { date, message,status} = this.contacts[this.userSelected].messages;
+        message = this.newMessage;
+        status = true;
+        this.contacts[this.userSelected].messages.push({
+          date,
+          message,
+          status,
+        })
+        this.newMessage = '';
+      }
     }
   }
 }).mount('#app');
