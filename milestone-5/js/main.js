@@ -231,6 +231,9 @@ createApp({
         return true;
       }
         return false;
+    },
+    deleteMessage(index){
+      this.contacts[this.userSelected].messages.splice(index,1);
     }
   }
 }).mount('#app');
