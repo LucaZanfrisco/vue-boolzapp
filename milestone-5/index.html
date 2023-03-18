@@ -58,11 +58,11 @@
           <main class="contact-list">
             <div class="search">
               <i class="fa-solid fa-magnifying-glass search-icon"></i>
-              <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="contactSearch" @keyup="findContact"/>
+              <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="contactSearch" @keyup="findContact()"/>
             </div>
             <!-- Contenitori dei contatti  -->
             <div class="contact-box">
-              <div class="contact-name" v-for="(contact,index) in findContact()" @click="userSelect(index)" :class="{select: isSelected(index)}">
+              <div class="contact-name" v-for="(contact,index) in findContact()" @click="userSelect(index)" :class="{select: isSelected(index)}" >
                 <div class="contact-avatar">
                   <img :src="contact.avatar" alt="contact.name" />
                   <div>
@@ -83,9 +83,9 @@
           <!-- contatto della chat  -->
           <header class="profile-chat">
             <div class="chat-avatar">
-              <img :src="contacts[userSelected].avatar" alt="contacts[userSelected].name" />
+              <img :src="findContact()[userSelected].avatar" alt="findContact()[userSelected].name" />
               <div>
-                <div>{{ contacts[userSelected].name}}</div>
+                <div>{{ findContact()[userSelected].name}}</div>
                 <div class="last-ms">Ultimo accesso alle 12:00</div>
               </div>
             </div>
@@ -97,9 +97,16 @@
           </header>
           <!-- Contenitore dei messaggi -->
           <main class="chat-box">
-            <div class="msg" :class="{sent: message.status}" v-for="message in contacts[userSelected].messages">
+            <div class="msg" :class="{sent: message.status}" v-for="(message,index) in findContact()[userSelected].messages">
                 <div class="txt-ms"> {{ message.message }} </div>
-                <div class="time-ms">12:00</div>
+                <div class="tent">
+                  <div class="tent-icon" @click="tentBox(index)"><i class="fa-solid fa-chevron-down"></i></div>
+                  <div class="tent-box" :class="{'tent-box-show': tentBoxShow(index)}">
+                    <div>Messaggio Info</div>
+                    <div>Elimina messagio</div>
+                  </div>
+                  <div class="time-ms">12:00</div>
+                </div>
             </div> 
           </main>
 

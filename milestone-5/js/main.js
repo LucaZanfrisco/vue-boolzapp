@@ -11,6 +11,8 @@ createApp({
       userSelected: 0,
       contactSearch: '',
       selected: false,
+      messageSelected: null,
+      showTentBox: false,
       contacts: [
         {
           name: "Michele",
@@ -210,11 +212,25 @@ createApp({
         }, this.answerTimer * 1000);
     },
     findContact(){
-      if(this.contactSearch !== ''){
+      if(this.contactSearch.trim() !== ''){
         return this.contacts.filter(element => element.name.toLowerCase().includes(this.contactSearch.toLowerCase()));
       }else{
         return this.contacts;
       }
+    },
+    tentBox(index){
+      this.messageSelected = index;
+      if(!this.showTentBox){
+        this.showTentBox = true;
+      }else{
+        this.showTentBox = false;
+      }
+    },
+    tentBoxShow(index){
+      if(this.messageSelected === index && !this.showTentBox){
+        return true;
+      }
+        return false;
     }
   }
 }).mount('#app');
