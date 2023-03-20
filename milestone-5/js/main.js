@@ -182,22 +182,26 @@ createApp({
     };
   },
   methods:{
+    // Metodo che seleziona l'utente dalla lista contatti
     userSelect(index){
       console.log(this.userSelected);
       this.userSelected = index;
     },
+    // Aggiunge il colore di sfondo al contatto selezionato
     isSelected(index){
       if(this.userSelected === index){
         return true;
       }
       return false;
     },
+    // Formatta la data in ore e minuti
     ora(date){
       const dateFormat = this.dateTime.fromFormat(date, 'dd/MM/yyyy H:mm:ss' );
       const ore = dateFormat.hour;
       const minuti = dateFormat.minute;
       return `${ore}:${minuti}`;
     },
+    // Permette di scrivere un messaggio con ore e minuti dinamici e di ricevere una risposta entro 1 secondo
     newMsg(){
       if(this.newMessage.trim() !== ''){
         const oggi = this.dateTime.now();
@@ -225,6 +229,7 @@ createApp({
           });
         }, this.answerTimer * 1000);
     },
+    // Cerca nella lista contatti generando una nuova lista dei contatti trovati
     findContact(){
       if(this.contactSearch.trim() !== ''){
         this.listaContatti = this.contacts.filter(element => element.name.toLowerCase().includes(this.contactSearch.toLowerCase()));
@@ -232,6 +237,7 @@ createApp({
         this.listaContatti = this.contacts;
       }
     },
+    //  Tendina la messaggio selezionato
     tentBox(index){
       this.messageSelected = index;
       if(!this.showTentBox){
@@ -240,19 +246,19 @@ createApp({
         this.showTentBox = false;
       }
     },
+    // Aggiunge la classe show alla tendina del messaggio selezionato
     tentBoxShow(index){
       if(this.messageSelected === index && !this.showTentBox){
         return true;
       }
         return false;
     },
+    //  Cancella il messaggio selezionato
     deleteMessage(index){
       this.listaContatti[this.userSelected].messages.splice(index,1);
     },
-    lastMs(){
-      return this.contacts[this.userSelected].messages.length - 1;
-    }
   },
+  // Monta all'interno dell'istanza dell'app la lista dei contatti cercati
   mounted(){
     this.listaContatti = this.contacts;
   }
