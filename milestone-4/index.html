@@ -58,7 +58,7 @@
           <main class="contact-list">
             <div class="search">
               <i class="fa-solid fa-magnifying-glass search-icon"></i>
-              <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="contactSearch" @keyup="findContact"/>
+              <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="contactSearch" @keyup="findContact(userSelected)"/>
             </div>
             <!-- Contenitori dei contatti  -->
             <div class="contact-box">

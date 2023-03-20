@@ -10,7 +10,7 @@ createApp({
       answerTimer: 2,
       userSelected: 0,
       contactSearch: '',
-      selected: false,
+      userSearched: 0,
       contacts: [
         {
           name: "Michele",
@@ -178,7 +178,8 @@ createApp({
   },
   methods:{
     userSelect(index){
-      this.userSelected = index;
+        this.userSelected = this.userSearched + index;
+        console.log(this.userSelected);
     },
     isSelected(index){
       if(this.userSelected === index){
@@ -210,9 +211,15 @@ createApp({
         }, this.answerTimer * 1000);
     },
     findContact(){
-      if(this.contactSearch !== ''){
-        return this.contacts.filter(element => element.name.toLowerCase().includes(this.contactSearch.toLowerCase()));
+      if(this.contactSearch.trim() !== ''){
+        return this.contacts.filter((element,index) => {
+          if(element.name.toLowerCase().includes(this.contactSearch.toLowerCase())){
+            this.userSearched = index;
+            return element;
+          };
+        });
       }else{
+        this.userSearched = 0;
         return this.contacts;
       }
     }
