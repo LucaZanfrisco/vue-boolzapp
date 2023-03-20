@@ -83,9 +83,9 @@
           <!-- contatto della chat  -->
           <header class="profile-chat">
             <div class="chat-avatar">
-              <img :src="findContact()[userSelected].avatar" alt="findContact()[userSelected].name" />
+              <img :src="contacts[userSelected].avatar" alt="contacts[userSelected].name" />
               <div>
-                <div>{{ findContact()[userSelected].name}}</div>
+                <div>{{ contacts[userSelected].name}}</div>
                 <div class="last-ms">{{ contacts[userSelected].messages[lastMs()].date }}</div>
               </div>
             </div>
@@ -97,7 +97,7 @@
           </header>
           <!-- Contenitore dei messaggi -->
           <main class="chat-box">
-            <div class="msg" :class="{sent: message.status}" v-for="(message,index) in findContact()[userSelected].messages">
+            <div class="msg" :class="{sent: message.status}" v-for="(message,index) in contacts[userSelected].messages">
                 <div class="txt-ms"> {{ message.message }} </div>
                 <div class="tent">
                   <div class="tent-icon" @click="tentBox(index)"><i class="fa-solid fa-chevron-down"></i></div>
