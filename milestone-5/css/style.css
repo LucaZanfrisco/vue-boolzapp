@@ -227,6 +227,7 @@ img{
 .tent{
     align-self: flex-end;
     position: relative;
+    cursor: pointer;
 }
 .tent-box{
     position: absolute;

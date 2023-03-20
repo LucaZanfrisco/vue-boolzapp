@@ -10,9 +10,10 @@ createApp({
       answerTimer: 2,
       userSelected: 0,
       contactSearch: '',
-      selected: false,
       messageSelected: null,
       showTentBox: false,
+      messageLength: 0,
+      numMs: 0,
       contacts: [
         {
           name: "Michele",
@@ -22,7 +23,7 @@ createApp({
             {
               date: "10/01/2020 15:30:55",
               message: "Hai portato a spasso il cane?",
-              status: 'sent',
+              status: true,
             },
             {
               date: "10/01/2020 15:50:00",
@@ -234,6 +235,13 @@ createApp({
     },
     deleteMessage(index){
       this.contacts[this.userSelected].messages.splice(index,1);
+    },
+    numberMessage(index){
+      this.num = this.contacts[index].messages.length - 1;
+      return this.contacts[index].messages.length - 1;
+    },
+    lastMs(){
+      return this.contacts[this.userSelected].messages.length - 1;
     }
   }
 }).mount('#app');

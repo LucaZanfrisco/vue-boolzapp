@@ -67,11 +67,11 @@
                   <img :src="contact.avatar" alt="contact.name" />
                   <div>
                     <div>{{ contact.name }}</div>
-                    <div class="last-ms">Ultimo messaggio inviato</div>
+                    <div class="last-ms">{{ contact.messages[numberMessage(index)].message}}</div>
                   </div>
                 </div>
                 <div>
-                  <div class="time">12:00</div>
+                  <div class="time">{{ contact.messages[numberMessage(index)].date }}</div>
                 </div>
               </div>
             </div>
@@ -86,7 +86,7 @@
               <img :src="findContact()[userSelected].avatar" alt="findContact()[userSelected].name" />
               <div>
                 <div>{{ findContact()[userSelected].name}}</div>
-                <div class="last-ms">Ultimo accesso alle 12:00</div>
+                <div class="last-ms">{{ contacts[userSelected].messages[lastMs()].date }}</div>
               </div>
             </div>
             <ul class="chat-icon">
@@ -105,7 +105,7 @@
                     <div>Messaggio Info</div>
                     <div @click="deleteMessage(index)">Elimina messagio</div>
                   </div>
-                  <div class="time-ms">12:00</div>
+                  <div class="time-ms">{{ message.date }}</div>
                 </div>
             </div> 
           </main>
