@@ -101,7 +101,7 @@
                 <div class="txt-ms"> {{ message.message }} </div>
                 <div class="tent">
                   <div class="tent-icon" @click="tentBox(index)"><i class="fa-solid fa-chevron-down"></i></div>
-                  <div class="tent-box" :class="{'tent-box-show': tentBoxShow(index)}">
+                  <div class="tent-box" :class="{'tent-box-show': tentBoxShow(index) }">
                     <div>Messaggio Info</div>
                     <div @click="deleteMessage(index)">Elimina messagio</div>
                   </div>

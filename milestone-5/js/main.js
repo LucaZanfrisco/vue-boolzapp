@@ -185,7 +185,7 @@ createApp({
       console.log(this.userSelected);
     },
     isSelected(index){
-      if(this.userSelected === index){
+      if(this.userSelected === this.userSearched + index){
         return true;
       }
       return false;
