@@ -13,7 +13,7 @@ createApp({
       messageSelected: null,
       showTentBox: false,
       messageLength: 0,
-      numMs: 0,
+      listaContatti: [],
       contacts: [
         {
           name: "Michele",
@@ -181,21 +181,22 @@ createApp({
   },
   methods:{
     userSelect(index){
-      this.userSelected = this.userSearched + index;
       console.log(this.userSelected);
+      this.userSelected = index;
+      console.log(this.contacts);
     },
     isSelected(index){
-      if(this.userSelected === this.userSearched + index){
+      if(this.userSelected === index){
         return true;
       }
       return false;
     },
     newMsg(){
       if(this.newMessage.trim() !== ''){
-        let { date, message,status} = this.contacts[this.userSelected].messages;
+        let { date, message,status} = this.listaContatti[this.userSelected].messages;
         message = this.newMessage;
         status = true;
-        this.contacts[this.userSelected].messages.push({
+        this.listaContatti[this.userSelected].messages.push({
           date,
           message,
           status,
@@ -203,10 +204,10 @@ createApp({
         }
         this.newMessage = '';
         setTimeout(() => {
-          let { date, message,status} = this.contacts[this.userSelected].messages;
+          let { date, message,status} = this.listaContatti[this.userSelected].messages;
           message = this.answerMessage;
           status = false;
-          this.contacts[this.userSelected].messages.push({
+          this.listaContatti[this.userSelected].messages.push({
             date,
             message,
             status
@@ -215,15 +216,9 @@ createApp({
     },
     findContact(){
       if(this.contactSearch.trim() !== ''){
-        return this.contacts.filter((element,index) => {
-          if(element.name.toLowerCase().includes(this.contactSearch.toLowerCase())){
-            this.userSearched = index;
-            return element;
-          };
-        });
+        this.listaContatti = this.contacts.filter(element => element.name.toLowerCase().includes(this.contactSearch.toLowerCase()));
       }else{
-        this.userSearched = 0;
-        return this.contacts;
+        this.listaContatti = this.contacts;
       }
     },
     tentBox(index){
@@ -243,12 +238,11 @@ createApp({
     deleteMessage(index){
       this.contacts[this.userSelected].messages.splice(index,1);
     },
-    numberMessage(index){
-      this.num = this.contacts[index].messages.length - 1;
-      return this.contacts[index].messages.length - 1;
-    },
     lastMs(){
       return this.contacts[this.userSelected].messages.length - 1;
     }
+  },
+  mounted(){
+    this.listaContatti = this.contacts;
   }
 }).mount('#app');
