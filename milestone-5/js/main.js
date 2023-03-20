@@ -236,7 +236,7 @@ createApp({
         return false;
     },
     deleteMessage(index){
-      this.contacts[this.userSelected].messages.splice(index,1);
+      this.listaContatti[this.userSelected].messages.splice(index,1);
     },
     lastMs(){
       return this.contacts[this.userSelected].messages.length - 1;
