@@ -14,6 +14,8 @@ createApp({
       showTentBox: false,
       messageLength: 0,
       listaContatti: [],
+      dateTime: luxon.DateTime,
+      orario: '',
       contacts: [
         {
           name: "Michele",
@@ -183,7 +185,6 @@ createApp({
     userSelect(index){
       console.log(this.userSelected);
       this.userSelected = index;
-      console.log(this.contacts);
     },
     isSelected(index){
       if(this.userSelected === index){
@@ -191,11 +192,20 @@ createApp({
       }
       return false;
     },
+    ora(date){
+      const dateFormat = this.dateTime.fromFormat(date, 'dd/MM/yyyy H:mm:ss' );
+      const ore = dateFormat.hour;
+      const minuti = dateFormat.minute;
+      return `${ore}:${minuti}`;
+    },
     newMsg(){
       if(this.newMessage.trim() !== ''){
+        const oggi = this.dateTime.now();
+        this.orario = oggi.toFormat('dd/MM/yyyy H:mm:ss')
         let { date, message,status} = this.listaContatti[this.userSelected].messages;
         message = this.newMessage;
         status = true;
+        date = this.orario;
         this.listaContatti[this.userSelected].messages.push({
           date,
           message,
@@ -207,6 +217,7 @@ createApp({
           let { date, message,status} = this.listaContatti[this.userSelected].messages;
           message = this.answerMessage;
           status = false;
+          date = this.orario;
           this.listaContatti[this.userSelected].messages.push({
             date,
             message,

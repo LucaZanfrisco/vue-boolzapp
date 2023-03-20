@@ -71,7 +71,7 @@
                   </div>
                 </div>
                 <div>
-                  <div class="time">{{ contact.messages[contact.messages.length - 1].date }}</div>
+                  <div class="time">{{ ora(contact.messages[contact.messages.length - 1].date) }}</div>
                 </div>
               </div>
             </div>
@@ -105,7 +105,7 @@
                     <div>Messaggio Info</div>
                     <div @click="deleteMessage(index)">Elimina messagio</div>
                   </div>
-                  <div class="time-ms">{{ message.date }}</div>
+                  <div class="time-ms">{{ ora(message.date) }}</div>
                 </div>
             </div> 
           </main>
