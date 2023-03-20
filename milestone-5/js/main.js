@@ -181,7 +181,8 @@ createApp({
   },
   methods:{
     userSelect(index){
-      this.userSelected = index;
+      this.userSelected = this.userSearched + index;
+      console.log(this.userSelected);
     },
     isSelected(index){
       if(this.userSelected === index){
@@ -214,8 +215,14 @@ createApp({
     },
     findContact(){
       if(this.contactSearch.trim() !== ''){
-        return this.contacts.filter(element => element.name.toLowerCase().includes(this.contactSearch.toLowerCase()));
+        return this.contacts.filter((element,index) => {
+          if(element.name.toLowerCase().includes(this.contactSearch.toLowerCase())){
+            this.userSearched = index;
+            return element;
+          };
+        });
       }else{
+        this.userSearched = 0;
         return this.contacts;
       }
     },
